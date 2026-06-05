@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BOGADNI STORE
 
-## Getting Started
+Premium fashion e-commerce platform for Albania. Orders via WhatsApp (+355 69 211 1876).
 
-First, run the development server:
+**Stil. Cilësi. Vetëbesim.**
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | Next.js 16, TypeScript, Tailwind CSS v4 |
+| UI | Radix UI, Framer Motion, Lucide Icons |
+| Backend | Next.js Server Actions, Route Handlers |
+| Database | PostgreSQL + Prisma ORM v7 |
+| Auth | NextAuth v5 (Auth.js) |
+| State | Zustand (cart, wishlist) |
+| Deployment | Vercel |
+
+---
+
+## Quick Start
+
+### 1. Install
+
+```bash
+cd bogadni-store
+npm install
+```
+
+### 2. Environment Variables
+
+```bash
+cp .env.example .env.local
+# Edit .env.local with your values
+```
+
+Key variables:
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/bogadni_store"
+NEXTAUTH_SECRET="min-32-character-secret-key"
+NEXTAUTH_URL="http://localhost:3000"
+ADMIN_EMAIL="admin@bogadnistore.com"
+ADMIN_PASSWORD="your-secure-password"
+NEXT_PUBLIC_WHATSAPP_NUMBER="355692111876"
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+```
+
+### 3. Database Setup
+
+```bash
+# Create DB
+createdb bogadni_store
+
+# Push schema
+npm run db:push
+
+# Generate client
+npm run db:generate
+
+# Seed sample data + admin user
+npm run db:seed
+```
+
+### 4. Run
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Admin Panel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+URL: `/admin/login`
 
-## Learn More
+Credentials: set via `ADMIN_EMAIL` and `ADMIN_PASSWORD` in `.env.local`.
 
-To learn more about Next.js, take a look at the following resources:
+Features:
+- **Dashboard** — stats, top products, recent orders
+- **Products** — full CRUD with image URLs, sizes, colors, stock
+- **Categories** — manage product categories
+- **Collections** — manage curated collections (Summer Sale, New Collection, etc.)
+- **Orders** — view WhatsApp orders and status
+- **Statistics** — top products by views, revenue
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## WhatsApp Ordering
 
-## Deploy on Vercel
+No payment gateway — all orders go through WhatsApp.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Single product message format:
+```
+Pershendetje, Dua te porosis:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Produkti: Hoodie Essential
+Masa: M
+Ngjyra: E zeze
+Cmimi: 4,490 Lek
+Link: https://bogadnistore.com/product/hoodie-essential
+```
+
+Cart checkout generates a message with all items, totals, and shipping info.
+
+---
+
+## Deployment (Vercel)
+
+1. Push to GitHub
+2. Import repo to Vercel
+3. Add all env vars from `.env.example` in Vercel dashboard
+4. Use a managed PostgreSQL (Neon, Supabase, Railway)
+5. Deploy — Vercel auto-detects Next.js
+
+Production DB setup:
+```bash
+npx vercel env pull .env.local
+npm run db:push
+npm run db:seed
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── (shop)/         # Public storefront pages
+│   ├── admin/          # Admin panel (protected)
+│   ├── api/            # API routes
+│   └── actions/        # Server Actions (CRUD)
+├── components/
+│   ├── layout/         # Navbar, Footer, AnnouncementBar
+│   ├── product/        # ProductCard, WhatsAppButton, etc.
+│   ├── home/           # HeroSection, FeaturedProducts, etc.
+│   └── ui/             # Base components (Button, Input, etc.)
+├── lib/                # prisma, auth, utils, validations
+├── store/              # Zustand cart store
+└── types/              # TypeScript types
+```
+
+---
+
+## Security
+
+- Admin routes protected by session check in `proxy.ts`
+- Server-side role check on all admin Server Actions
+- Zod validation on all inputs
+- Rate limiting on API routes
+- Security headers (X-Frame-Options, CSP, etc.)
+- Prisma parameterized queries (SQL injection protection)
+
+---
+
+## License
+
+Private — Bogadni Store © 2025

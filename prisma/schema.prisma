@@ -1,0 +1,222 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String?
+  role          Role      @default(USER)
+  accounts      Account[]
+  sessions      Session[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Collection {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id            String         @id @default(cuid())
+  name          String
+  slug          String         @unique
+  price         Float
+  comparePrice  Float?                        // Unified: old/original price for sale display
+  description   String
+  categoryId    String
+  collectionId  String?
+  sizes         String[]
+  colors        Json
+  stock         Int            @default(0)
+  mainImage     String         @default("")
+  images        String[]
+  featured      Boolean        @default(false)
+  newArrival    Boolean        @default(false)
+  onSale        Boolean        @default(false)
+  isActive      Boolean        @default(true)
+  views         Int            @default(0)
+  category      Category       @relation(fields: [categoryId], references: [id])
+  collection    Collection?    @relation(fields: [collectionId], references: [id])
+  orderItems    OrderItem[]
+  productImages ProductImage[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  // ── Indexes ──────────────────────────────────────────────────────────────
+  // Single-column for exact-match lookups
+  @@index([slug])
+  @@index([isActive])
+  @@index([views])
+
+  // Composite indexes — match the most common WHERE combinations
+  @@index([isActive, featured])      // home page featured query
+  @@index([isActive, newArrival])    // home page new arrivals
+  @@index([isActive, onSale])        // shop sale filter
+  @@index([isActive, categoryId])    // shop category filter
+  @@index([isActive, createdAt])     // shop default sort (newest)
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  url       String
+  publicId  String?
+  alt       String   @default("")
+  width     Int?
+  height    Int?
+  sortOrder Int      @default(0)
+  isMain    Boolean  @default(false)
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([productId])               // fast lookup of images per product
+  @@index([productId, isMain])       // fast main image lookup
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([isRead])                  // unread count query
+  @@index([createdAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  adminId   String?
+  action    String
+  entity    String?
+  entityId  String?
+  metadata  Json?
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([adminId])
+  @@index([createdAt])
+  @@index([action])
+}
+
+model Order {
+  id           String      @id @default(cuid())
+  customerName String?
+  phone        String?
+  items        OrderItem[]
+  total        Float
+  status       OrderStatus @default(PENDING)
+  whatsappMsg  String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+
+  @@index([status])                  // admin filter by status
+  @@index([createdAt])               // recent orders sort
+  @@index([status, createdAt])       // combined: pending orders sorted by date
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  size      String
+  color     String
+  quantity  Int
+  price     Float
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id])
+
+  @@index([orderId])                 // join from Order → items
+  @@index([productId])               // join from Product → sold count
+}
+
+model Newsletter {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+model SiteSettings {
+  id               String @id @default(cuid())
+  heroTitle        String @default("STIL. CILËSI. VETËBESIM.")
+  heroSubtitle     String @default("Rroba moderne për çdo moment. Zgjidh stilin tënd, dallohu.")
+  announcementText String @default("TRANSPORT FALAS PËR POROSI MBI 5,000 LEK")
+  freeShippingMin  Float  @default(5000)
+}
