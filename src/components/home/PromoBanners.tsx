@@ -9,7 +9,7 @@ export function PromoBanners() {
         {/* Summer Sale Banner */}
         <div className="md:col-span-2 relative overflow-hidden bg-neutral-900 aspect-[16/7]">
           <Image
-            src="/promo-summer-sale.jpg"
+            src="/summer-sale-homepage.jpg"
             alt="Summer Sale"
             fill
             className="object-cover object-center"
@@ -31,7 +31,7 @@ export function PromoBanners() {
         {/* New Collection Banner */}
         <div className="relative overflow-hidden bg-neutral-100 aspect-[16/7] md:aspect-auto">
           <Image
-            src="/home-new-collection.jpg"
+            src="/collection-summer-sale.jpg"
             alt="New Collection"
             fill
             className="object-cover object-center"
