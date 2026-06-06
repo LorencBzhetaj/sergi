@@ -58,7 +58,7 @@ export function AdminSidebar() {
   return (
     <>
       {/* ── Mobile topbar (only below lg) ── */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-neutral-100 flex items-center justify-between px-4 h-14">
+      <div className="md:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-neutral-100 flex items-center justify-between px-4 h-14">
         <LogoAdmin />
         <button onClick={() => setMobileOpen(true)} className="p-2" aria-label="Hap menunë">
           <Menu className="h-5 w-5" />
@@ -67,13 +67,13 @@ export function AdminSidebar() {
 
       {/* ── Mobile overlay ── */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-black/40" onClick={() => setMobileOpen(false)} />
+        <div className="md:hidden fixed inset-0 z-50 bg-black/40" onClick={() => setMobileOpen(false)} />
       )}
 
       {/* ── Mobile drawer ── */}
       <aside
         className={cn(
-          "lg:hidden fixed top-0 left-0 z-50 h-full w-72 bg-white flex flex-col shadow-xl transition-transform duration-300",
+          "md:hidden fixed top-0 left-0 z-50 h-full w-72 bg-white flex flex-col shadow-xl transition-transform duration-300",
           mobileOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -90,7 +90,7 @@ export function AdminSidebar() {
       </aside>
 
       {/* ── Desktop sidebar (lg and up) ── */}
-      <aside className="hidden lg:flex w-56 shrink-0 bg-white border-r border-neutral-100 flex-col min-h-screen sticky top-0">
+      <aside className="hidden md:flex w-56 shrink-0 bg-white border-r border-neutral-100 flex-col min-h-screen sticky top-0">
         <div className="px-5 py-5 border-b border-neutral-100">
           <LogoAdmin />
         </div>

@@ -29,7 +29,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     <div className="flex min-h-screen bg-neutral-50">
       <AdminSidebar />
       {/* pt-14 on mobile = space for fixed topbar; lg:pt-0 = desktop has sidebar */}
-      <main className="flex-1 pt-14 lg:pt-0 p-4 lg:p-8 overflow-auto min-w-0">{children}</main>
+      <main className="flex-1 pt-14 md:pt-0 p-4 md:p-8 overflow-auto min-w-0">{children}</main>
     </div>
   );
 }
