@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com";
   return {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/admin", "/api"] },

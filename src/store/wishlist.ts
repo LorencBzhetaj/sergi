@@ -24,6 +24,6 @@ export const useWishlist = create<WishlistStore>()(
       isWishlisted: (slug) => get().items.includes(slug),
       count: () => get().items.length,
     }),
-    { name: "bogadni-wishlist" }
+    { name: "bogdani-wishlist" }
   )
 );

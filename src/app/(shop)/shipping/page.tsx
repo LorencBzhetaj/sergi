@@ -3,7 +3,7 @@ import { Truck, RotateCcw, Clock, CheckCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Transporti & Kthimet",
-  description: "Informacion mbi transportin dhe politikën e kthimit të Bogadni Store.",
+  description: "Informacion mbi transportin dhe politikën e kthimit të Bogdani Store.",
 };
 
 export default function ShippingPage() {
@@ -61,7 +61,7 @@ export default function ShippingPage() {
             <h2 className="font-bold tracking-widest text-sm">GARANCIA E CILËSISË</h2>
           </div>
           <p className="text-sm text-neutral-600 leading-relaxed">
-            Çdo produkt i Bogadni Store kalon nëpër kontrolle strikte të cilësisë para dërgimit. Nëse merrni një produkt me defekt, do ta zëvendësojmë menjëherë pa kosto shtesë.
+            Çdo produkt i Bogdani Store kalon nëpër kontrolle strikte të cilësisë para dërgimit. Nëse merrni një produkt me defekt, do ta zëvendësojmë menjëherë pa kosto shtesë.
           </p>
         </section>
       </div>

@@ -13,7 +13,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <div className="rounded-full bg-white p-0.5 shrink-0">
-                <img src="/icon.png" alt="Bogadni Store" width={52} height={52} className="rounded-full object-contain" />
+                <img src="/icon.png" alt="Bogdani Store" width={52} height={52} className="rounded-full object-contain" />
               </div>
               <div>
                 <div className="font-bold text-lg tracking-widest text-white">BOGDANI</div>

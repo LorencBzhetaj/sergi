@@ -11,10 +11,10 @@ import { Footer } from "@/components/layout/Footer";
 import type { Metadata } from "next";
 import type { Product } from "@/types";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com";
 
 export const metadata: Metadata = {
-  title: "Bogadni Store | Rroba Online Shqiperi - Dyqan Rrobash Tirane",
+  title: "Bogdani Store | Rroba Online Shqiperi - Dyqan Rrobash Tirane",
   description:
     "Dyqan rrobash online premium në Shqipëri. Stil. Cilësi. Vetëbesim. Porosi nëpërmjet WhatsApp. Transport falas mbi 5,000 Lek.",
   alternates: { canonical: siteUrl },

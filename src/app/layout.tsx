@@ -16,15 +16,15 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com"),
   title: {
-    default: "Bogadni Store | Rroba Online Shqiperi - Dyqan Rrobash Tirane",
-    template: "%s | Bogadni Store",
+    default: "Bogdani Store | Rroba Online Shqiperi - Dyqan Rrobash Tirane",
+    template: "%s | Bogdani Store",
   },
   description:
-    "Bogadni Store - Dyqan rrobash online në Shqipëri. Veshje moderne dhe premium. Porosi nëpërmjet WhatsApp. Transport falas mbi 5,000 Lek.",
+    "Bogdani Store - Dyqan rrobash online në Shqipëri. Veshje moderne dhe premium. Porosi nëpërmjet WhatsApp. Transport falas mbi 5,000 Lek.",
   keywords: [
-    "Bogadni Store",
+    "Bogdani Store",
     "Rroba Online Shqiperi",
     "Dyqan Rrobash Tirane",
     "Veshje Online Shqiperi",
@@ -33,26 +33,26 @@ export const metadata: Metadata = {
     "streetwear albania",
     "rroba moderne",
   ],
-  authors: [{ name: "Bogadni Store" }],
-  creator: "Bogadni Store",
+  authors: [{ name: "Bogdani Store" }],
+  creator: "Bogdani Store",
   openGraph: {
     type: "website",
     locale: "sq_AL",
-    siteName: "Bogadni Store",
-    title: "Bogadni Store | Rroba Online Shqiperi",
+    siteName: "Bogdani Store",
+    title: "Bogdani Store | Rroba Online Shqiperi",
     description: "Dyqan rrobash online premium në Shqipëri. Stil. Cilësi. Vetëbesim.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Bogadni Store - Rroba Online Shqiperi",
+        alt: "Bogdani Store - Rroba Online Shqiperi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bogadni Store | Rroba Online Shqiperi",
+    title: "Bogdani Store | Rroba Online Shqiperi",
     description: "Dyqan rrobash online premium në Shqipëri.",
     images: ["/og-image.jpg"],
   },

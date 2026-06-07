@@ -24,12 +24,12 @@ export function ProductSchema({ product, url }: ProductSchemaProps) {
       url,
       seller: {
         "@type": "Organization",
-        name: "Bogadni Store",
+        name: "Bogdani Store",
       },
     },
     brand: {
       "@type": "Brand",
-      name: "Bogadni Store",
+      name: "Bogdani Store",
     },
   };
 
@@ -45,9 +45,9 @@ export function OrganizationSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Bogadni Store",
-    url: "https://bogadnistore.com",
-    logo: "https://bogadnistore.com/logo.png",
+    name: "Bogdani Store",
+    url: "https://bogdanistore.com",
+    logo: "https://bogdanistore.com/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+355-69-211-1876",
@@ -55,8 +55,8 @@ export function OrganizationSchema() {
       availableLanguage: "Albanian",
     },
     sameAs: [
-      "https://instagram.com/bogadnistore",
-      "https://facebook.com/bogadnistore",
+      "https://instagram.com/bogdanistore",
+      "https://facebook.com/bogdanistore",
     ],
   };
 
@@ -96,13 +96,13 @@ export function WebsiteSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Bogadni Store",
-    url: "https://bogadnistore.com",
+    name: "Bogdani Store",
+    url: "https://bogdanistore.com",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: "https://bogadnistore.com/shop?q={search_term_string}",
+        urlTemplate: "https://bogdanistore.com/shop?q={search_term_string}",
       },
       "query-input": "required name=search_term_string",
     },

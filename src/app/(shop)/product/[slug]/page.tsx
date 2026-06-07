@@ -42,13 +42,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProduct(slug);
   if (!product) return { title: "Produkt nuk u gjet" };
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com";
   return {
     title: `${product.name} - ${product.price.toLocaleString("sq-AL")} Lek`,
     description: product.description.slice(0, 160),
     alternates: { canonical: `${siteUrl}/product/${slug}` },
     openGraph: {
-      title: `${product.name} | Bogadni Store`,
+      title: `${product.name} | Bogdani Store`,
       description: product.description.slice(0, 160),
       images: [{ url: product.mainImage, width: 800, height: 1000, alt: product.name }],
       type: "website",
@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   const related = await getRelated(product.categoryId, product.id);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com";
 
   return (
     <>

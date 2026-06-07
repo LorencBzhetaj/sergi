@@ -30,7 +30,7 @@ const slides = [
     image: "/hero-3.jpg",
     imageMobile: "/hero-3-mobile.jpg",
     title1: "EKSPERIENCA",
-    title2: "BOGADNI.",
+    title2: "BOGDANI.",
     subtitle: "Cilësi premium dhe shërbim i përkushtuar. Vizito dyqanin tonë.",
     textDark: false,
   },

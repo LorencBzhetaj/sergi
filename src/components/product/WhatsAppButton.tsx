@@ -52,7 +52,7 @@ export function WhatsAppButton({
       window.open(data.whatsappUrl, "_blank");
     } catch {
       // Fallback: open WhatsApp without saving (so customer isn't blocked)
-      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com";
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com";
       const msg = `Pershendetje, dua te porosis:\n\nProdukti: ${productSlug}\nMasa: ${size}\nNgjyra: ${color}\n\nLink: ${siteUrl}/product/${productSlug}`;
       window.open(`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "355692111876"}?text=${encodeURIComponent(msg)}`, "_blank");
       toast.error("Porosi u dërgua, por nuk u ruajt. Kontrolloni lidhjen.");

@@ -10,7 +10,7 @@ export default function TermsPage() {
       <div className="space-y-6 text-sm text-neutral-700">
         <section>
           <h2 className="font-bold text-black mb-2">1. Pranimi i kushteve</h2>
-          <p>Duke përdorur shërbimet e Bogadni Store, ju pranoni të gjitha kushtet e listuara në këtë dokument.</p>
+          <p>Duke përdorur shërbimet e Bogdani Store, ju pranoni të gjitha kushtet e listuara në këtë dokument.</p>
         </section>
         <section>
           <h2 className="font-bold text-black mb-2">2. Produktet dhe çmimet</h2>
@@ -26,7 +26,7 @@ export default function TermsPage() {
         </section>
         <section>
           <h2 className="font-bold text-black mb-2">5. Pronësia intelektuale</h2>
-          <p>Të gjitha imazhet, logot dhe përmbajtja e kësaj faqeje janë pronë e Bogadni Store dhe nuk mund të përdoren pa leje.</p>
+          <p>Të gjitha imazhet, logot dhe përmbajtja e kësaj faqeje janë pronë e Bogdani Store dhe nuk mund të përdoren pa leje.</p>
         </section>
       </div>
     </div>

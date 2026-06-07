@@ -14,7 +14,7 @@ export function Logo({ className = "" }: { className?: string }) {
       <div className="relative shrink-0 w-10 h-10 sm:w-14 sm:h-14">
         <Image
           src="/icon.png"
-          alt="Bogadni Store Logo"
+          alt="Bogdani Store Logo"
           fill
           className="object-contain"
           priority
@@ -43,7 +43,7 @@ export function LogoAdmin() {
   return (
     <div className="flex items-center gap-2.5">
       <div className="relative w-9 h-9 shrink-0">
-        <Image src="/icon.png" alt="Bogadni Store" fill className="object-contain" />
+        <Image src="/icon.png" alt="Bogdani Store" fill className="object-contain" />
       </div>
       <div className="flex flex-col leading-none">
         <span className="font-bold text-xs tracking-widest text-black">BOGDANI</span>
@@ -58,6 +58,6 @@ export function LogoAdmin() {
 /* ─── Icon only ──────────────────────────────────────────── */
 export function LogoIcon({ size = 40 }: { size?: number }) {
   return (
-    <Image src="/icon.png" alt="Bogadni Store" width={size} height={size} className="object-contain" />
+    <Image src="/icon.png" alt="Bogdani Store" width={size} height={size} className="object-contain" />
   );
 }

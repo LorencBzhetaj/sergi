@@ -45,7 +45,7 @@ Ngjyra: ${color}
 Cmimi: ${formatPrice(price)}
 Link: ${productUrl}
 
-Faleminderit nga Bogadni Store!`;
+Faleminderit nga Bogdani Store!`;
 }
 
 export function generateCartWhatsAppMessage(
@@ -76,5 +76,5 @@ Transporti: ${shipping}
 
 Totali: ${formatPrice(total >= 5000 ? total : total + 300)}
 
-Faleminderit nga Bogadni Store!`;
+Faleminderit nga Bogdani Store!`;
 }

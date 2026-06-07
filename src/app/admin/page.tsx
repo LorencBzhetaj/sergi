@@ -88,7 +88,7 @@ export default async function AdminDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-lg sm:text-xl font-bold tracking-widest">PANELI KRYESOR</h1>
-          <p className="text-neutral-500 text-sm mt-0.5">Bogadni Store — pasqyra e aktivitetit</p>
+          <p className="text-neutral-500 text-sm mt-0.5">Bogdani Store — pasqyra e aktivitetit</p>
         </div>
         <Link
           href="/admin/products/new"

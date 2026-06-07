@@ -30,7 +30,7 @@ function buildWhatsAppMessage(
   return (
     `Pershendetje, dua te porosis:\n\n` +
     lines.join("\n\n") +
-    `\n\nTotali: ${total.toLocaleString("sq-AL")} Lek\n${shippingLine}\n\nFaleminderit nga Bogadni Store!`
+    `\n\nTotali: ${total.toLocaleString("sq-AL")} Lek\n${shippingLine}\n\nFaleminderit nga Bogdani Store!`
   );
 }
 

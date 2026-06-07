@@ -10,7 +10,7 @@ export default function PrivacyPolicyPage() {
       <div className="prose prose-sm max-w-none text-neutral-700 space-y-6">
         <section>
           <h2 className="font-bold text-black mb-2">1. Informacioni që mbledhim</h2>
-          <p>Bogadni Store mbledh vetëm informacionin e nevojshëm për përpunimin e porosive tuaja, duke përfshirë emrin, numrin e telefonit dhe adresën e dorëzimit. Ky informacion jepet vullnetarisht nga ju nëpërmjet WhatsApp.</p>
+          <p>Bogdani Store mbledh vetëm informacionin e nevojshëm për përpunimin e porosive tuaja, duke përfshirë emrin, numrin e telefonit dhe adresën e dorëzimit. Ky informacion jepet vullnetarisht nga ju nëpërmjet WhatsApp.</p>
         </section>
         <section>
           <h2 className="font-bold text-black mb-2">2. Si e përdorim informacionin</h2>

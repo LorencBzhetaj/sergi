@@ -8,18 +8,18 @@ import { NewsletterSection } from "@/components/home/NewsletterSection";
 import { OrganizationSchema, WebsiteSchema } from "@/components/seo/ProductSchema";
 import type { Product } from "@/types";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogadnistore.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://bogdanistore.com";
 
 export const metadata: Metadata = {
-  title: "Bogadni Store | Rroba Online Shqiperi - Dyqan Rrobash Tirane",
+  title: "Bogdani Store | Rroba Online Shqiperi - Dyqan Rrobash Tirane",
   description:
     "Dyqan rrobash online premium në Shqipëri. Stil. Cilësi. Vetëbesim. Porosi nëpërmjet WhatsApp. Transport falas mbi 5,000 Lek.",
   alternates: { canonical: siteUrl },
   openGraph: {
-    title: "Bogadni Store | Rroba Online Shqiperi",
+    title: "Bogdani Store | Rroba Online Shqiperi",
     description: "Dyqan rrobash online premium në Shqipëri. Stil. Cilësi. Vetëbesim.",
     url: siteUrl,
-    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Bogadni Store" }],
+    images: [{ url: `${siteUrl}/og-image.jpg`, width: 1200, height: 630, alt: "Bogdani Store" }],
   },
 };
 

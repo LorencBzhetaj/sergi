@@ -3,17 +3,17 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Rreth Nesh",
-  description: "Historia e Bogadni Store - Dyqan rrobash premium në Shqipëri.",
+  description: "Historia e Bogdani Store - Dyqan rrobash premium në Shqipëri.",
 };
 
 export default function RrethNeshPage() {
   return (
     <div>
-      {/* Hero — Bogadni Store wall sign */}
+      {/* Hero — Bogdani Store wall sign */}
       <div className="relative h-72 sm:h-[28rem] bg-neutral-900 overflow-hidden">
         <Image
           src="/about-banner.jpg"
-          alt="Bogadni Store"
+          alt="Bogdani Store"
           fill
           className="object-cover"
           priority
@@ -36,7 +36,7 @@ export default function RrethNeshPage() {
           <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
             <Image
               src="/about-products.jpg"
-              alt="Koleksioni Bogadni Store"
+              alt="Koleksioni Bogdani Store"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
