@@ -25,7 +25,7 @@ export function Logo({ className = "" }: { className?: string }) {
           className="font-bold text-black text-sm sm:text-base"
           style={{ letterSpacing: "0.22em" }}
         >
-          BOGADNI
+          BOGDANI
         </span>
         <span
           className="text-[#C9A84C]"
@@ -46,7 +46,7 @@ export function LogoAdmin() {
         <Image src="/icon.png" alt="Bogadni Store" fill className="object-contain" />
       </div>
       <div className="flex flex-col leading-none">
-        <span className="font-bold text-xs tracking-widest text-black">BOGADNI</span>
+        <span className="font-bold text-xs tracking-widest text-black">BOGDANI</span>
         <span className="text-[#C9A84C]" style={{ fontSize: "0.48rem", letterSpacing: "0.25em" }}>
           ADMIN
         </span>

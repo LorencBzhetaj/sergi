@@ -50,10 +50,10 @@ export default function KontaktPage() {
             <div>
               <p className="font-semibold text-sm">Email</p>
               <a
-                href="mailto:info@bogadnistore.com"
+                href="mailto:info@bogdanistore.com"
                 className="text-sm text-neutral-600 hover:text-[#C9A84C] transition-colors"
               >
-                info@bogadnistore.com
+                info@bogdanistore.com
               </a>
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function KontaktPage() {
                   <MapPin className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-black">Bogadni Store</p>
+                  <p className="text-sm font-semibold text-black">Bogdani Store</p>
                   <p className="text-xs text-neutral-500">Tiranë, Shqipëri</p>
                 </div>
               </div>

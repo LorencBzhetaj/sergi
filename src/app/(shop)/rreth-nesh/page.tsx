@@ -27,10 +27,10 @@ export default function RrethNeshPage() {
             <p className="text-[#C9A84C] text-xs tracking-widest font-semibold mb-3">HISTORIA JONË</p>
             <h2 className="text-2xl font-bold tracking-tight mb-4">Stil. Cilësi. Vetëbesim.</h2>
             <p className="text-neutral-600 leading-relaxed text-sm">
-              Bogadni Store u themelua me një vizion të qartë: të sjellë rroba premium dhe moderne direkt tek klientët shqiptarë. Besojmë se çdo person meriton të vishet me cilësi dhe të shprehë personalitetin e tij nëpërmjet stilit.
+              Bogdani Store u themelua me një vizion të qartë: të sjellë rroba premium dhe moderne direkt tek klientët shqiptarë. Besojmë se çdo person meriton të vishet me cilësi dhe të shprehë personalitetin e tij nëpërmjet stilit.
             </p>
             <p className="text-neutral-600 leading-relaxed text-sm mt-4">
-              Çdo produkt i Bogadni Store është zgjedhur me kujdes të madh, duke kombinuar materialet premium me dizajnin modern dhe çmimet e arsyeshme.
+              Çdo produkt i Bogdani Store është zgjedhur me kujdes të madh, duke kombinuar materialet premium me dizajnin modern dhe çmimet e arsyeshme.
             </p>
           </div>
           <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">

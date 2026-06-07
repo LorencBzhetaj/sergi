@@ -26,7 +26,7 @@ export default async function KoleksionePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
       <div className="text-center mb-12">
-        <p className="text-[#C9A84C] text-xs font-semibold tracking-widest mb-3">BOGADNI STORE</p>
+        <p className="text-[#C9A84C] text-xs font-semibold tracking-widest mb-3">BOGDANI STORE</p>
         <h1 className="text-3xl font-bold tracking-widest">KOLEKSIONET</h1>
         <p className="text-neutral-500 mt-3 max-w-md mx-auto text-sm">
           Çdo koleksion është krijuar me kujdes për të reflektuar stilin modern dhe cilësinë premium.

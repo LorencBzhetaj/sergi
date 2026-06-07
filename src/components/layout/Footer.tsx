@@ -16,7 +16,7 @@ export function Footer() {
                 <img src="/icon.png" alt="Bogadni Store" width={52} height={52} className="rounded-full object-contain" />
               </div>
               <div>
-                <div className="font-bold text-lg tracking-widest text-white">BOGADNI</div>
+                <div className="font-bold text-lg tracking-widest text-white">BOGDANI</div>
                 <div className="text-[10px] tracking-[0.3em] text-[#C9A84C]">— STORE —</div>
               </div>
             </div>
@@ -104,7 +104,7 @@ export function Footer() {
 
         <div className="border-t border-neutral-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-neutral-500">
-            © {new Date().getFullYear()} Bogadni Store. Të gjitha të drejtat e rezervuara.
+            © {new Date().getFullYear()} Bogdani Store. Të gjitha të drejtat e rezervuara.
           </p>
           <p className="text-xs text-neutral-600">
             <a
