@@ -1,35 +1,43 @@
 import { redirect } from "next/navigation";
-import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 import { AdminSidebar } from "./AdminSidebar";
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const headersList = await headers();
-  const pathname = headersList.get("x-pathname") || "";
+// Admin pages must never be cached (always reflect live auth + data)
+export const dynamic = "force-dynamic";
 
-  // Login page renders without auth check — proxy already protects other routes
-  if (pathname === "/admin/login") {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const h = await headers();
+  const pathname = h.get("x-pathname") || "";
+  const onLoginPage = pathname.endsWith("/admin/login");
+
+  // Resolve session safely (old/invalid cookie must not crash)
+  let isAdmin = false;
+  try {
+    const session = await auth();
+    isAdmin = !!session && (session.user as { role?: string }).role === "ADMIN";
+  } catch {
+    isAdmin = false;
+  }
+
+  // ── Login page: render bare (no sidebar). Redirect to dashboard if already in. ──
+  if (onLoginPage) {
+    if (isAdmin) redirect("/admin");
     return <>{children}</>;
   }
 
-  // Double-check auth server-side for all other admin routes.
-  // Wrap in try/catch: a cookie encrypted with an old AUTH_SECRET throws
-  // JWTSessionError ("no matching decryption secret") — treat as logged out.
-  let session = null;
-  try {
-    session = await auth();
-  } catch {
-    redirect("/admin/login");
-  }
-  if (!session || (session.user as { role?: string }).role !== "ADMIN") {
+  // ── Any other admin route requires a valid admin session ──
+  if (!isAdmin) {
     redirect("/admin/login");
   }
 
+  // ── Authenticated admin shell (sidebar always rendered here) ──
   return (
     <div className="flex min-h-screen bg-neutral-50">
       <AdminSidebar />
-      {/* pt-14 on mobile = space for fixed topbar; lg:pt-0 = desktop has sidebar */}
-      <main className="flex-1 pt-14 md:pt-0 p-4 md:p-8 overflow-auto min-w-0">{children}</main>
+      <main className="flex-1 pt-14 md:pt-0 p-4 md:p-8 overflow-auto min-w-0">
+        {children}
+      </main>
     </div>
   );
 }
