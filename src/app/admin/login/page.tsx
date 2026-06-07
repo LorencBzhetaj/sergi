@@ -2,12 +2,10 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Lock } from "lucide-react";
 import { Logo } from "@/components/layout/Logo";
 
 export default function AdminLoginPage() {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPw, setShowPw] = useState(false);
@@ -23,12 +21,14 @@ export default function AdminLoginPage() {
       password,
       redirect: false,
     });
-    setLoading(false);
-    if (result?.ok) {
-      router.push("/admin");
-    } else {
-      setError("Email ose fjalëkalimi i gabuar.");
+    if (result?.ok && !result?.error) {
+      // Full page navigation — guarantees the new session cookie is sent
+      // and the admin layout sees the authenticated session immediately.
+      window.location.assign("/admin");
+      return;
     }
+    setLoading(false);
+    setError("Email ose fjalëkalimi i gabuar.");
   };
 
   return (
